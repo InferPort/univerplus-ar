@@ -1,7 +1,7 @@
-import "aframe";
-import "mind-ar/dist/mindar-image-aframe.prod.js";
+import "/scripts/aframe.js";
+import "/scripts/mindar-image-aframe.prod.js";
 import * as THREE from "three";
-import { MindARThree } from "mind-ar/dist/mindar-image-three.prod.js";
+import { MindARThree } from "/scripts/mindar-image-three.prod.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const start = async () => {
