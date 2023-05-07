@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 
 app.use(express.static('public'))
+app.use("/univerplus-ar",express.static('public'))
 app.use("/render",express.static('public/assets/render'))
 
 app.use('/scripts', express.static(__dirname + '/node_modules/aframe/dist/'));
