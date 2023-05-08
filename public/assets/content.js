@@ -5,13 +5,16 @@ const audioObj = new Audio();
 
 const playAudio = (audio) => {
   audioObj.src = audio;
-  postMessage(audioData.play());
+  if (myAudio.duration > 0 && !myAudio.paused) {
+    alert("Ya se está reproduciendo un audio")
+  } else {
+    audioData.play();
+  }
 };
 
 const audioAPIpath = (filename) => {
   return `https://api.inferport.com/univerplus/audio/${filename}.mp3`;
 };
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const scene = document.querySelector("a-scene");
