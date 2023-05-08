@@ -1,3 +1,9 @@
+/*
+AUDIO CONSTRUCTOR
+*/
+const audioObj = new Audio();
+
+
 const audioAPIpath = (filename) => {
   return `https://api.inferport.com/univerplus/audio/${filename}.mp3`;
 };
