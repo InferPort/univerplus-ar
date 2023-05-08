@@ -3,15 +3,15 @@ AUDIO CONSTRUCTOR
 */
 const audioObj = new Audio();
 
+const playAudio = (audio) => {
+  audioObj.src = audio;
+  postMessage(audioData.play());
+};
 
 const audioAPIpath = (filename) => {
   return `https://api.inferport.com/univerplus/audio/${filename}.mp3`;
 };
 
-const playAudio = (audio) => {
-  var audioData = new Audio(audio);
-  audioData.play();
-};
 
 document.addEventListener("DOMContentLoaded", () => {
   const scene = document.querySelector("a-scene");
@@ -19,13 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const targets = [];
 
-  for(let i = 1; i <= 15; i++) {  
+  for (let i = 1; i <= 15; i++) {
     targets[i] = document.querySelector(`#plane_${i}`);
   }
-  
-  targets.forEach(target => {
+
+  targets.forEach((target) => {
     target.addEventListener("targetFound", (event) => {
-      playAudio(audioAPIpath(target.id));
+      //playAudio(audioAPIpath(target.id));
+      alert("hola");
     });
   });
 
