@@ -8,6 +8,7 @@ const playAudio = (audio) => {
   if (myAudio.duration > 0 && !myAudio.paused) {
     alert("Ya se está reproduciendo un audio")
   } else {
+    alert("No se está reproduciendo un audio");
     audioData.play();
   }
 };
