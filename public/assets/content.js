@@ -7,8 +7,6 @@ const playAudio = (audio) => {
   if (audioObj.paused) {
     audioObj.src = audio;
     audioObj.play();
-  } else {
-    console.log("playing");
   }
 };
 
@@ -28,8 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   targets.forEach((target) => {
     target.addEventListener("targetFound", (event) => {
-      //playAudio(audioAPIpath(target.id));
-      alert("hola");
+      playAudio(audioAPIpath(target.id));
     });
   });
 
