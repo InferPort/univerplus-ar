@@ -4,12 +4,11 @@ AUDIO CONSTRUCTOR
 const audioObj = new Audio();
 
 const playAudio = (audio) => {
-  audioObj.src = audio;
-  if (myAudio.duration > 0 && !myAudio.paused) {
-    alert("Ya se está reproduciendo un audio")
+  if (audioObj.paused) {
+    audioObj.src = audio;
+    audioObj.play();
   } else {
-    alert("No se está reproduciendo un audio");
-    audioData.play();
+    console.log("playing");
   }
 };
 
