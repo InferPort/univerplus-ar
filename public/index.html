@@ -16,9 +16,9 @@
     <div class="ar-viewport">
         <div class="ar-container">
             <a-scene stats loading-screen="enabled: false"
-                mindar-image="imageTargetSrc: ./assets/render/qr.mind; max-track: 2; uiScanning:no;"
+                mindar-image=" imageTargetSrc: ./assets/render/qr.mind; max-track: 2; uiScanning:no;warmupTolerance: 1;"
                 color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
-                device-orientation-permission-ui="enabled: false">
+                device-orientation-permission-ui="enabled: true">
                 <a-assets>
                     <img id="card_1" src="./assets/targets/1.png" />
                     <img id="card_2" src="./assets/targets/2.png" />
@@ -39,49 +39,49 @@
 
                 <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
                 <a-entity id="plane_1" mindar-image-target="targetIndex: 0">
-                    <a-plane src="#card_1" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+                    <a-plane src="#card_1" position="0 0 0" height="1.656" width="3" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity id="plane_2" mindar-image-target="targetIndex: 1">
-                    <a-plane src="#card_2" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+                    <a-plane src="#card_2" position="0 0 0" height="1.656" width="3" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity id="plane_3" mindar-image-target="targetIndex: 2">
-                    <a-plane src="#card_3" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+                    <a-plane src="#card_3" position="0 0 0" height="1.656" width="3" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity id="plane_4" mindar-image-target="targetIndex: 3">
-                    <a-plane src="#card_4" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+                    <a-plane src="#card_4" position="0 0 0" height="1.656" width="3" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity id="plane_5" mindar-image-target="targetIndex: 4">
-                    <a-plane src="#card_5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+                    <a-plane src="#card_5" position="0 0 0" height="1.656" width="3" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity id="plane_6" mindar-image-target="targetIndex: 5">
-                    <a-plane src="#card_6" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+                    <a-plane src="#card_6" position="0 0 0" height="1.656" width="3" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity id="plane_7" mindar-image-target="targetIndex: 6">
-                    <a-plane src="#card_7" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+                    <a-plane src="#card_7" position="0 0 0" height="1.656" width="3" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity id="plane_8" mindar-image-target="targetIndex: 7">
-                    <a-plane src="#card_8" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+                    <a-plane src="#card_8" position="0 0 0" height="1.656" width="3" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity id="plane_9" mindar-image-target="targetIndex: 8">
-                    <a-plane src="#card_9" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+                    <a-plane src="#card_9" position="0 0 0" height="1.656" width="3" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity id="plane_10" mindar-image-target="targetIndex: 9">
-                    <a-plane src="#card_10" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+                    <a-plane src="#card_10" position="0 0 0" height="1.656" width="3" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity id="plane_11" mindar-image-target="targetIndex: 10">
-                    <a-plane src="#card_11" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+                    <a-plane src="#card_11" position="0 0 0" height="1.656" width="3" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity id="plane_12" mindar-image-target="targetIndex: 11">
-                    <a-plane src="#card_12" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+                    <a-plane src="#card_12" position="0 0 0" height="1.656" width="3" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity id="plane_13" mindar-image-target="targetIndex: 12">
-                    <a-plane src="#card_13" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+                    <a-plane src="#card_13" position="0 0 0" height="1.656" width="3" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity id="plane_14" mindar-image-target="targetIndex: 13">
-                    <a-plane src="#card_14" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+                    <a-plane src="#card_14" position="0 0 0" height="1.656" width="3" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity id="plane_15" mindar-image-target="targetIndex: 14">
-                    <a-plane src="#card_15" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+                    <a-plane src="#card_15" position="0 0 0" height="1.656" width="3" rotation="0 0 0"></a-plane>
                 </a-entity>
             </a-scene>
         </div>
@@ -89,12 +89,12 @@
         <div id="welcome-layer" class="ar-container container-fluid">
             <div class="container">
                 <div class="row">
-                    <p style="color:white;">:)</p>
+                    <p style="color:white;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab omnis nihil, vel temporibus sed nesciunt vero, tempore voluptate suscipit magnam laboriosam, odio quo velit asperiores. Amet rem nesciunt voluptates corrupti!</p>
                 </div>
             </div>
 
         </div>
-    -->
+        -->
     </div>
 </body>
 

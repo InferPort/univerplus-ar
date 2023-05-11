@@ -30,5 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  arSystem.stop();
+  scene.addEventListener("arReady", (event) => {
+    console.log("arReady");
+  });
 });
