@@ -16,8 +16,8 @@
     <div class="ar-viewport">
         <div class="ar-container">
             <a-scene stats loading-screen="enabled: false"
-                mindar-image=" imageTargetSrc: ./assets/render/qr.mind; max-track: 2; uiScanning:no;warmupTolerance: 1;"
-                color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+                mindar-image=" imageTargetSrc: ./assets/render/qr.mind; max-track: 1; uiScanning:no; warmupTolerance: 1;"
+                color-space="sRGB" renderer="colorManagement: false, physicallyCorrectLights" vr-mode-ui="enabled: false"
                 device-orientation-permission-ui="enabled: true">
                 <a-assets>
                     <img id="card_1" src="./assets/targets/1.png" />
@@ -85,16 +85,13 @@
                 </a-entity>
             </a-scene>
         </div>
-        <!--
         <div id="welcome-layer" class="ar-container container-fluid">
             <div class="container">
                 <div class="row">
                     <p style="color:white;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab omnis nihil, vel temporibus sed nesciunt vero, tempore voluptate suscipit magnam laboriosam, odio quo velit asperiores. Amet rem nesciunt voluptates corrupti!</p>
                 </div>
             </div>
-
         </div>
-        -->
     </div>
 </body>
 

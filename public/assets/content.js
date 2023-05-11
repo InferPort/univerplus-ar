@@ -14,6 +14,19 @@ const audioAPIpath = (filename) => {
   return `https://api.inferport.com/univerplus/audio/${filename}.mp3`;
 };
 
+const toggleFullScreen = () => {
+  var docElm = document.documentElement;
+  if (docElm.requestFullscreen) {
+    docElm.requestFullscreen();
+  } else if (docElm.msRequestFullscreen) {
+    docElm.msRequestFullscreen();
+  } else if (docElm.mozRequestFullScreen) {
+    docElm.mozRequestFullScreen();
+  } else if (docElm.webkitRequestFullScreen) {
+    docElm.webkitRequestFullScreen();
+  }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   const scene = document.querySelector("a-scene");
   const arSystem = scene.systems["mindar-image-system"];
@@ -31,6 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   scene.addEventListener("arReady", (event) => {
-    console.log("arReady");
+    toggleFullScreen();
   });
 });

@@ -8,7 +8,7 @@ html {
     overflow: hidden;
 }
 
-/*
+
 .ar-container {
     position: relative;
 }
@@ -22,6 +22,5 @@ html {
     background-color: black;
 
     position: absolute;
-    z-index: 99999;
+    z-index: 9999;
 }
-/*
