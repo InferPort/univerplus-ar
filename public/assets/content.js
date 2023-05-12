@@ -54,7 +54,6 @@ const landscape_message = () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log(is_landscape());
   ui_instructions();
 
   const scene = document.querySelector("a-scene");
@@ -83,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   scene.addEventListener("arReady", (event) => {
-    console.log(arSystem);
     $("#landscape-message img").bind("click", () => {
       toggleFullScreen();
       landscape_message();

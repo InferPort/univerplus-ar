@@ -2,24 +2,26 @@ const dotenv = require('dotenv').config()
 const express = require('express')
 const app = express()
 const fs = require('fs');
+const router = express.Router()
 
 /* VARIABLES */ 
-const port = process.env.PORT;
-const scale = process.env.PLANE_SCALE;
-const debug_mode = process.env.DEBUG;
+const port = process.env.PORT || 3000;
+const scale = process.env.PLANE_SCALE || 3;
+const debug_mode = process.env.DEBUG || 0;
 const target_quantity = fs.readdirSync('./public/assets/targets').length
+
+
+
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
+app.use("/univerplus-ar",express.static('public'))
 
-app.get("/", (req, res) => {
-  res.render("index.ejs", {scale,target_quantity,debug_mode})
-})
-app.get("/univerplus-ar", (req, res) => {
-  res.render("index.ejs", {scale,target_quantity,debug_mode})
-})
-app.use("/render",express.static('public/assets/render'))
 
+
+router.use(() => {});
+
+router.get("/", (req,res) => {res.render("index.ejs", {scale,target_quantity,debug_mode})})
 
 app.use('/scripts/aframe', express.static(__dirname + '/node_modules/aframe/dist/'));
 app.use('/scripts/mindar', express.static(__dirname + '/node_modules/mind-ar/dist/'));
@@ -27,6 +29,27 @@ app.use('/scripts/threejs', express.static(__dirname + '/node_modules/three/buil
 app.use('/scripts/dotenv', express.static(__dirname + '/node_modules/dotenv/lib/'));
 app.use('/scripts/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 app.use('/scripts/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'));
+app.use("/render",express.static('public/assets/render'))
+
+app.use('/univerplus-ar/scripts/aframe', express.static(__dirname + '/node_modules/aframe/dist/'));
+app.use('/univerplus-ar/scripts/mindar', express.static(__dirname + '/node_modules/mind-ar/dist/'));
+app.use('/univerplus-ar/scripts/threejs', express.static(__dirname + '/node_modules/three/build/'));
+app.use('/univerplus-ar/scripts/dotenv', express.static(__dirname + '/node_modules/dotenv/lib/'));
+app.use('/univerplus-ar/scripts/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
+app.use('/univerplus-ar/scripts/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'));
+app.use("/univerplus-ar/render",express.static('public/assets/render'))
+
+app.get("/", (req, res) => {
+  res.render("index.ejs", {scale,target_quantity,debug_mode})
+})
+
+app.get("/univerplus-ar", (req, res) => {
+  res.render("index.ejs", {scale,target_quantity,debug_mode})
+})
+
+
+
+
 
 app.listen(port, () => {
   console.log('  ___       __         ___         _   ');
