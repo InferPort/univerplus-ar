@@ -4,6 +4,7 @@
     <title>Demo AR | Genius Games & InferPort</title>
     <script>
         const targetQuantity = <%= target_quantity %>;
+        const debugMode = <%= debug_mode %>;
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="./scripts/aframe/aframe.js"></script>
@@ -16,9 +17,17 @@
 
 <body>
     <div class="ar-viewport">
+        <div id="messages">
+            <div id="landscape-message">
+                <img src="./assets/tutorial/landscape_tuto.png">
+            </div>
+            <div id="instructions">
+                <p>Please turn the phone sideways (portrair mode) :)</p>
+            </div>
+        </div>
         <div class="ar-container">
             <a-scene stats loading-screen="enabled: false"
-                mindar-image=" imageTargetSrc: ./assets/render/qr.mind; max-track: 1; uiScanning:no; warmupTolerance: 1;"
+                mindar-image="imageTargetSrc: ./assets/render/qr.mind; max-track: 1; uiScanning:no; warmupTolerance: 1;"
                 color-space="sRGB" renderer="colorManagement: false, physicallyCorrectLights"
                 vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true">
                 <a-assets>
@@ -36,15 +45,7 @@
                 <% } %>
             </a-scene>
         </div>
-        <div id="welcome-layer" class="container-fluid">
-            <div class="container">
-                <div class="row">
-                    <p style="color:white;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab omnis nihil,
-                        vel temporibus sed nesciunt vero, tempore voluptate suscipit magnam laboriosam, odio quo velit
-                        asperiores. Amet rem nesciunt voluptates corrupti!</p>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </body>
 

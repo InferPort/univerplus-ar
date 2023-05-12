@@ -42,19 +42,24 @@ UI CHECKER
 */
 
 const is_landscape = () => {
-  return window.innerHeight > window.innerWidth ? true : false;
-}
+  return window.innerHeight < window.innerWidth ? true : false;
+};
 
+const ui_instructions = () => {
+  is_landscape() ? $("#instructions").hide() : $("#instructions").show();
+};
+
+const landscape_message = () => {
+  $("#messages").hide();
+};
 
 document.addEventListener("DOMContentLoaded", () => {
+  ui_instructions();
+
   const scene = document.querySelector("a-scene");
   const arSystem = scene.systems["mindar-image-system"];
 
   const targets = [];
-
-  if (is_landscape()) {
-    console.log("Landscape");
-  }
 
   for (let i = 1; i <= targetQuantity; i++) {
     targets[i] = document.querySelector(`#plane_${i}`);
@@ -65,22 +70,26 @@ document.addEventListener("DOMContentLoaded", () => {
       playAudio(audioAPIpath(target.id));
     });
 
-    target.addEventListener("targetFound", (event) => {
-      console.log(`Target ${target.id} found`);
-    });
-    // detect target lost
-    target.addEventListener("targetLost", (event) => {
-      console.log(`Target ${target.id} lost`);
-    });
+    if (debugMode) {
+      target.addEventListener("targetFound", (event) => {
+        console.log(`Target ${target.id} found`);
+      });
+      // detect target lost
+      target.addEventListener("targetLost", (event) => {
+        console.log(`Target ${target.id} lost`);
+      });
+    }
   });
 
   scene.addEventListener("arReady", (event) => {
-    toggleFullScreen();
+    console.log(arSystem);
+    $("#landscape-message img").bind("click", () => {
+      toggleFullScreen();
+      landscape_message();
+    });
   });
 });
 
 window.addEventListener("resize", () => {
-  if (is_landscape()) {
-    console.log("Landscape");
-  }
+  ui_instructions();
 });

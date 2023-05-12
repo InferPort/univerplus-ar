@@ -6,13 +6,14 @@ const fs = require('fs');
 /* VARIABLES */ 
 const port = process.env.PORT;
 const scale = process.env.PLANE_SCALE;
+const debug_mode = process.env.DEBUG;
 const target_quantity = fs.readdirSync('./public/assets/targets').length
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
 app.get("/", (req, res) => {
-  res.render("index.ejs", {scale,target_quantity})
+  res.render("index.ejs", {scale,target_quantity,debug_mode})
 })
  
 app.use("/render",express.static('public/assets/render'))
@@ -27,7 +28,7 @@ app.use('/scripts/bootstrap', express.static(__dirname + '/node_modules/bootstra
 
 app.listen(port, () => {
   console.log('  ___       __         ___         _   ');
-  console.log(' |_ _|_ _  / _|___ _ _| _ \___ _ _| |_ ');
+  console.log(" |_ _|_ _  / _|___ _ _| _ \\___ _ _| |_ ");
   console.log("  | || ' \\|  _/ -_) '_|  _/ _ \\ '_|  _|");
   console.log(" |___|_||_|_| \\___|_| |_| \\___/_|  \\__|");
   console.log(`
