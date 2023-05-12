@@ -18,12 +18,13 @@
 <body>
     <div class="ar-viewport">
         <div id="messages">
+            <div id="instructions">
+                <img src="https://static.thenounproject.com/png/29509-200.png">
+            </div>
             <div id="landscape-message">
                 <img src="./assets/tutorial/landscape_tuto.png">
             </div>
-            <div id="instructions">
-                <p>Please turn the phone sideways (portrair mode) :)</p>
-            </div>
+
         </div>
         <div class="ar-container">
             <a-scene stats loading-screen="enabled: false"
@@ -32,20 +33,21 @@
                 vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true">
                 <a-assets>
                     <% for (let i=1; i <=target_quantity; i++) { %>
-                    <img id="card_<%=i%>" src="./assets/targets/<%=i%>.png" />
-                    <% } %>
+                        <img id="card_<%=i%>" src="./assets/targets/<%=i%>.png" />
+                        <% } %>
                 </a-assets>
 
                 <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
                 <% for (let i=1; i <=target_quantity; i++) { %>
                     <a-entity id="plane_<%=i%>" mindar-image-target="targetIndex: <%=i-1%>">
-                        <a-plane src="#card_<%=i%>" position="0 0 0" height="<%=0.556 * scale%>" width="<%=1 * scale%>" rotation="0 0 0"></a-plane>
+                        <a-plane src="#card_<%=i%>" position="0 0 0" height="<%=0.556 * scale%>" width="<%=1 * scale%>"
+                            rotation="0 0 0"></a-plane>
                     </a-entity>
-                <% } %>
+                    <% } %>
             </a-scene>
         </div>
-        
+
     </div>
 </body>
 

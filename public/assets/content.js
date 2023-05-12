@@ -54,6 +54,7 @@ const landscape_message = () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  console.log(is_landscape());
   ui_instructions();
 
   const scene = document.querySelector("a-scene");
