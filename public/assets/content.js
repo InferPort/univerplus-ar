@@ -24,7 +24,7 @@ const plane_size = (plane, scale) => {
   $(plane).attr("width", plane_width * scaleF);
 };
 
-const toggleFullScreen = () => {
+const toggle_fullscreen = () => {
   const docElm = document.documentElement;
   screen.orientation.lock("landscape");
   if (docElm.requestFullscreen) {
@@ -46,15 +46,17 @@ const is_landscape = () => {
   return window.innerHeight < window.innerWidth ? true : false;
 };
 
-const ui_instructions = () => {
-  is_landscape() ? $("#instructions").hide() : $("#instructions").show();
+const ui_instructions = (arSystem) => {
+  is_landscape() ? $("#instructions").hide(500) : $("#instructions").show(500);
 };
 
 const landscape_message = () => {
-  $("#messages").hide();
+  $("#landscape-message").hide();
+  $("#messages").css({'background-color': 'transparent'}); 
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  $("#messages").css({'background-color': 'black'}); 
   ui_instructions();
 
   const scene = document.querySelector("a-scene");
@@ -84,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   scene.addEventListener("arReady", (event) => {
     $("#landscape-message img").bind("click", () => {
-      toggleFullScreen();
+      toggle_fullscreen();
       landscape_message();
     });
   });
