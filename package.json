@@ -1,9 +1,13 @@
 {
   "dependencies": {
     "aframe": "^1.4.2",
+    "bootstrap": "^5.2.3",
     "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "jquery": "^3.7.0",
     "mind-ar": "^1.2.1",
+    "registry.npmjs.org": "^1.0.1",
     "three": "^0.152.2"
   },
   "devDependencies": {
