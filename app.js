@@ -35,6 +35,7 @@ app.listen(port, () => {
   FOUND ${target_quantity} TARGETS
 
   Copyright (c) 2023 InferPort (@nikitacontreras / Nicolás Contreras)
+  https://inferport.com | https://github.com/InferPort
   
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
