@@ -25,7 +25,8 @@ const plane_size = (plane, scale) => {
 };
 
 const toggleFullScreen = () => {
-  var docElm = document.documentElement;
+  const docElm = document.documentElement;
+  screen.orientation.lock("landscape");
   if (docElm.requestFullscreen) {
     docElm.requestFullscreen();
   } else if (docElm.msRequestFullscreen) {
