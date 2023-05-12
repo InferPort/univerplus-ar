@@ -15,7 +15,9 @@ app.use(express.static('public'))
 app.get("/", (req, res) => {
   res.render("index.ejs", {scale,target_quantity,debug_mode})
 })
- 
+app.get("/univerplus-ar", (req, res) => {
+  res.render("index.ejs", {scale,target_quantity,debug_mode})
+})
 app.use("/render",express.static('public/assets/render'))
 
 
