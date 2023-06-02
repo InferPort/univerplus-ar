@@ -9,7 +9,9 @@ const router = express.Router();
 const port = process.env.PORT || 3000;
 const scale = process.env.PLANE_SCALE || 3;
 const debug_mode = process.env.DEBUG || 0;
+const target_name = process.env.TARGET_NAME || "targets";
 const target_quantity = fs.readdirSync("./public/assets/targets").length;
+const jsValues = { scale, target_quantity, debug_mode, target_name };
 
 const message = () => {
   console.log("  ___       __         ___         _   ");
@@ -42,7 +44,7 @@ const message = () => {
   `);
 
   console.log(`Running on port: ${port}`);
-}
+};
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -51,7 +53,7 @@ app.use("/univerplus-ar", express.static("public"));
 router.use(() => {});
 
 router.get("/", (req, res) => {
-  res.render("index.ejs", { scale, target_quantity, debug_mode });
+  res.render("index.ejs", jsValues);
 });
 
 app.use(
@@ -107,11 +109,11 @@ app.use(
 app.use("/univerplus-ar/render", express.static("public/assets/render"));
 
 app.get("/", (req, res) => {
-  res.render("index.ejs", { scale, target_quantity, debug_mode });
+  res.render("index.ejs", jsValues);
 });
 
 app.get("/univerplus-ar", (req, res) => {
-  res.render("index.ejs", { scale, target_quantity, debug_mode });
+  res.render("index.ejs", jsValues);
 });
 
 if (process.env.CUSTOM_SSL == 1) {
@@ -119,11 +121,11 @@ if (process.env.CUSTOM_SSL == 1) {
     key: fs.readFileSync("./ssl/ca-key.pem"),
     cert: fs.readFileSync("./ssl/ca-cert.pem"),
   };
-  https.createServer(options,app).listen(port, () => {message()});
+  https.createServer(options, app).listen(port, () => {
+    message();
+  });
 } else {
   app.listen(port, () => {
     message();
   });
 }
-
-
