@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   scene.addEventListener("arReady", (event) => {
-    $("#landscape-message img").bind("click", () => {
+   $("#landscape-message img").on("click touchend touchstart touchmove", () => {
       toggle_fullscreen();
       landscape_message();
     });
