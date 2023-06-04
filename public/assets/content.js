@@ -92,9 +92,10 @@ document.addEventListener("DOMContentLoaded", () => {
       "./assets/tutorial/landscape_tuto.png"
     );
     $("#landscape-message img").on("click touchstart", () => {
-      alert("dummie");
       toggle_fullscreen();
-      landscape_message();
+      $("#landscape-message").addClass("hide");
+      $("#landscape-message").hide();
+      $("#messages").css({ "background-color": "transparent" });
     });
   });
 });
