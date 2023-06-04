@@ -51,7 +51,7 @@ const ui_instructions = (arSystem) => {
 };
 
 const landscape_message = () => {
-  $("#landscape-message").hide();
+  $("#landscape-message").addClass("hide");
   $("#messages").css({ "background-color": "transparent" });
 };
 
