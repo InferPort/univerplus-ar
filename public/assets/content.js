@@ -51,7 +51,6 @@ const ui_instructions = (arSystem) => {
 };
 
 const landscape_message = () => {
-  alert("hola");
   $("#landscape-message").addClass("hide");
   $("#landscape-message").hide();
   $("#messages").css({ "background-color": "transparent" });
@@ -87,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   scene.addEventListener("arReady", (event) => {
-    landscape_message();
+    $("#landscape-message img").attr("src", "./assets/tutorial/landscape_tuto.png")
     $("#landscape-message img").on("click touchstart", () => {
       
       toggle_fullscreen();
