@@ -52,11 +52,11 @@ const ui_instructions = (arSystem) => {
 
 const landscape_message = () => {
   $("#landscape-message").hide();
-  $("#messages").css({'background-color': 'transparent'}); 
+  $("#messages").css({ "background-color": "transparent" });
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  $("#messages").css({'background-color': 'black'}); 
+  $("#messages").css({ "background-color": "black" });
   ui_instructions();
 
   const scene = document.querySelector("a-scene");
@@ -85,10 +85,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   scene.addEventListener("arReady", (event) => {
-   $("#landscape-message img").on("click touchend touchstart touchmove", () => {
-      toggle_fullscreen();
-      landscape_message();
-    });
+    $("#landscape-message img").on(
+      "click touchstart",
+      () => {
+        alert("hola");
+        toggle_fullscreen();
+        landscape_message();
+      }
+    );
   });
 });
 
