@@ -87,9 +87,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   scene.addEventListener("arReady", (event) => {
-    $("#landscape-message img").attr("src", "./assets/tutorial/landscape_tuto.png")
+    $("#landscape-message img").attr(
+      "src",
+      "./assets/tutorial/landscape_tuto.png"
+    );
     $("#landscape-message img").on("click touchstart", () => {
-      
+      alert("dummie");
       toggle_fullscreen();
       landscape_message();
     });
