@@ -21,7 +21,7 @@ html {
 }
 
 #messages {
-    background-color: black;
+    background-color: #000;
     z-index: 10000;
     position: absolute !important;
     height: 100%;
