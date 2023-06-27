@@ -1,4 +1,5 @@
 const dotenv = require("dotenv").config();
+const compression = require("compression");
 const express = require("express");
 const https = require("https");
 const app = express();
@@ -12,7 +13,10 @@ const debug_mode = process.env.DEBUG || 0;
 const target_name = process.env.TARGET_NAME || "targets";
 const target_quantity = fs.readdirSync("./public/assets/targets").length;
 const jsValues = { scale, target_quantity, debug_mode, target_name };
-
+const staticOptions = {
+  etag: false,
+  maxAge: "7d"
+}
 const message = () => {
   console.log("  ___       __         ___         _   ");
   console.log(" |_ _|_ _  / _|___ _ _| _ \\___ _ _| |_ ");
@@ -47,10 +51,11 @@ const message = () => {
 };
 
 app.set("view engine", "ejs");
-app.use(express.static("public"));
-app.use("/univerplus-ar", express.static("public"));
-
-router.use(() => {});
+app.use(compression({
+  threshold: 0
+}));
+app.use(express.static("public", staticOptions));
+app.use("/univerplus-ar", express.static("public", staticOptions));
 
 router.get("/", (req, res) => {
   res.render("index.ejs", jsValues);
