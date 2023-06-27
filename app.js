@@ -4,6 +4,7 @@ const express = require("express");
 const https = require("https");
 const app = express();
 const fs = require("fs");
+const { Z_RLE } = require("zlib");
 const router = express.Router();
 
 /* VARIABLES */
@@ -52,7 +53,13 @@ const message = () => {
 
 app.set("view engine", "ejs");
 app.use(compression({
-  threshold: 0
+  filter: (req,res) => {
+    return true
+  },
+  threshold: 0,
+  level: 9,
+  memLevel: 9,
+  strategy: Z_RLE
 }));
 app.use(express.static("public", staticOptions));
 app.use("/univerplus-ar", express.static("public", staticOptions));
