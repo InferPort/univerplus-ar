@@ -26,15 +26,17 @@ const plane_size = (plane, scale) => {
 
 const toggle_fullscreen = () => {
   const docElm = document.documentElement;
-  screen.orientation.lock("landscape");
+  console.log("fullscreen")
+  //window.screen.orientation.lock("landscape");
   if (docElm.requestFullscreen) {
+    console.log("whatever")
     docElm.requestFullscreen();
-  } else if (docElm.msRequestFullscreen) {
+  } else if (docElm.webkitRequestFullscreen) { /* Safari */
+    console.log("safari")
+    docElm.webkitRequestFullscreen();
+  } else if (docElm.msRequestFullscreen) { /* IE11 */
+    console.log("ie11")
     docElm.msRequestFullscreen();
-  } else if (docElm.mozRequestFullScreen) {
-    docElm.mozRequestFullScreen();
-  } else if (docElm.webkitRequestFullScreen) {
-    docElm.webkitRequestFullScreen();
   }
 };
 
@@ -51,7 +53,6 @@ const ui_instructions = (arSystem) => {
 };
 
 const landscape_message = () => {
-  alert(":)");
   $("#landscape-message").addClass("hide");
   $("#landscape-message").hide();
   $("#messages").css({ "background-color": "transparent" });
@@ -77,10 +78,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (debugMode) {
       target.addEventListener("targetFound", (event) => {
+        alert("found")
         console.log(`Target ${target.id} found`);
       });
       // detect target lost
       target.addEventListener("targetLost", (event) => {
+        alert("lost")
         console.log(`Target ${target.id} lost`);
       });
     }
@@ -92,14 +95,14 @@ document.addEventListener("DOMContentLoaded", () => {
       "./assets/tutorial/landscape_tuto.png"
     );
     $("#landscape-message img").on("click touchstart", () => {
-      toggle_fullscreen();
+      //toggle_fullscreen();
       $("#landscape-message").addClass("hide");
       $("#landscape-message").hide();
       $("#messages").css({ "background-color": "transparent" });
     });
   });
-});
 
-window.addEventListener("resize", () => {
-  ui_instructions();
-});
+
+  window.addEventListener("resize", () => {
+    ui_instructions();
+  });
