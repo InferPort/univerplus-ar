@@ -11,7 +11,7 @@ const playAudio = (audio) => {
 };
 
 const audioAPIpath = (filename) => {
-  return `https://api.inferport.com/univerplus/audio/${filename}.mp3`;
+  return `https://api.geniusgameslatam.com/univerplus/audio/${filename}.mp3`;
 };
 
 /*
@@ -26,16 +26,12 @@ const plane_size = (plane, scale) => {
 
 const toggle_fullscreen = () => {
   const docElm = document.documentElement;
-  console.log("fullscreen")
   //window.screen.orientation.lock("landscape");
   if (docElm.requestFullscreen) {
-    console.log("whatever")
     docElm.requestFullscreen();
-  } else if (docElm.webkitRequestFullscreen) { /* Safari */
-    console.log("safari")
+  } else if (docElm.webkitRequestFullscreen) {
     docElm.webkitRequestFullscreen();
-  } else if (docElm.msRequestFullscreen) { /* IE11 */
-    console.log("ie11")
+  } else if (docElm.msRequestFullscreen) {
     docElm.msRequestFullscreen();
   }
 };
@@ -78,12 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (debugMode) {
       target.addEventListener("targetFound", (event) => {
-        alert("found")
         console.log(`Target ${target.id} found`);
       });
-      // detect target lost
       target.addEventListener("targetLost", (event) => {
-        alert("lost")
         console.log(`Target ${target.id} lost`);
       });
     }
@@ -95,14 +88,15 @@ document.addEventListener("DOMContentLoaded", () => {
       "./assets/tutorial/landscape_tuto.png"
     );
     $("#landscape-message img").on("click touchstart", () => {
-      //toggle_fullscreen();
+      toggle_fullscreen();
       $("#landscape-message").addClass("hide");
       $("#landscape-message").hide();
       $("#messages").css({ "background-color": "transparent" });
     });
   });
+});
 
 
-  window.addEventListener("resize", () => {
-    ui_instructions();
-  });
+window.addEventListener("resize", () => {
+  ui_instructions();
+});
