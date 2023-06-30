@@ -4,6 +4,7 @@ AUDIO CONSTRUCTOR
 const audioObj = new Audio();
 
 const playAudio = (audio) => {
+  console.log("playing_audio", audio);
   if (audioObj.paused) {
     audioObj.src = audio;
     audioObj.play();
@@ -11,7 +12,7 @@ const playAudio = (audio) => {
 };
 
 const audioAPIpath = (filename) => {
-  return `https://api.geniusgameslatam.com/univerplus/audio/${filename}.mp3`;
+  return `${window.location.origin}/assets/audio/${filename}.mp3`;
 };
 
 /*
@@ -21,12 +22,11 @@ const plane_height = 0.552;
 const plane_width = 1;
 const plane_size = (plane, scale) => {
   $(plane).attr("height", plane_height * scale);
-  $(plane).attr("width", plane_width * scaleF);
+  $(plane).attr("width", plane_width * scale);
 };
 
 const toggle_fullscreen = () => {
   const docElm = document.documentElement;
-  //window.screen.orientation.lock("landscape");
   if (docElm.requestFullscreen) {
     docElm.requestFullscreen();
   } else if (docElm.webkitRequestFullscreen) {
@@ -88,6 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
       "./assets/tutorial/landscape_tuto.png"
     );
     $("#landscape-message img").on("click touchstart", () => {
+      console.log("Click mp3")
+      audioObj.src = "data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKpIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzUAVFNTRQAAAA8AAANMYXZmNTcuODMuMTAwAAAAAAAAAAAAAAD/80DEAAAAA0gAAAAATEFNRTMuMTAwVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsRbAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQMSkAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV";
+      console.log(audioObj)
       toggle_fullscreen();
       $("#landscape-message").addClass("hide");
       $("#landscape-message").hide();
