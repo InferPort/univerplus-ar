@@ -1,23 +1,25 @@
-const dotenv = require("dotenv").config();
-const compression = require("compression");
-const express = require("express");
-const https = require("https");
-const app = express();
-const fs = require("fs");
-const { Z_RLE } = require("zlib");
-const router = express.Router();
+const dotenv = require("dotenv").config(),
+  compression = require("compression"),
+  express = require("express"),
+  https = require("https"),
+  path = require('path'),
+  app = express(),
+  fs = require("fs"),
+  { Z_RLE } = require("zlib"),
+  router = express.Router()
 
 /* VARIABLES */
-const port = process.env.PORT || 3000;
-const scale = process.env.PLANE_SCALE || 3;
-const debug_mode = process.env.DEBUG || 0;
-const target_name = process.env.TARGET_NAME || "targets";
-const target_quantity = fs.readdirSync("./public/assets/targets").length;
-const jsValues = { scale, target_quantity, debug_mode, target_name };
-const staticOptions = {
-  etag: false,
-  maxAge: "7d"
-}
+const port = process.env.PORT || 3000,
+  scale = process.env.PLANE_SCALE || 3,
+  debug_mode = process.env.DEBUG || 0,
+  target_name = process.env.TARGET_NAME || "targets",
+  target_quantity = fs.readdirSync("./public/assets/targets", (err, files) => {
+  }).length,
+  jsValues = { scale, target_quantity, debug_mode, target_name },
+  staticOptions = {
+    etag: false,
+    maxAge: "7d"
+  }
 const message = () => {
   console.log("  ___       __         ___         _   ");
   console.log(" |_ _|_ _  / _|___ _ _| _ \\___ _ _| |_ ");
@@ -53,7 +55,7 @@ const message = () => {
 
 app.set("view engine", "ejs");
 app.use(compression({
-  filter: (req,res) => {
+  filter: (req, res) => {
     return true
   },
   threshold: 0,
